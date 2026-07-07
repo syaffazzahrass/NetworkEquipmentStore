@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <!-- Meta Tags SEO -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Network Equipment Store - Toko perangkat jaringan terlengkap dan terpercaya. Jual router, access point, kabel, modem, mikrotik, dan aksesoris jaringan.">
+    <title>Network Equipment Store - Toko Perangkat Jaringan</title>
+    <link rel="icon" href="public/favicon.ico">
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+
+    <!-- Icons - Bootstrap Icons & Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- CSS Utama -->
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <!-- ============================================= -->
+    <!-- OVERLAY untuk menutup menu mobile -->
+    <!-- ============================================= -->
+    <div id="nav-overlay" class="nav-overlay"></div>
+
+    <!-- ============================================= -->
+    <!-- NAVBAR - Navigasi Utama Website -->
+    <!-- Background hijau, responsive, hamburger menu mobile -->
+    <!-- ============================================= -->
+    <nav class="navbar">
+        <div class="container-fluid">
+            <!-- Logo & Brand -->
+            <a href="index.html" class="navbar-brand">
+                <div class="logo-circle">
+                    <img src="public/uploads/profile/LOGO_NES.png" alt="NES Logo">
+                </div>
+                <span>NES</span>
+            </a>
+
+            <!-- Hamburger Menu Button (Mobile) -->
+            <button class="hamburger" id="hamburger-btn" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+
+            <!-- Menu Links -->
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html" class="active">HOME</a></li>
+
+                <!-- Dropdown Kategori Produk -->
+                <li class="dropdown">
+                    <a href="javascript:void(0)" id="dropdown-toggle">PRODUCT <i class="bi bi-chevron-down"
+                            style="font-size:0.7rem;"></i></a>
+                    <div class="dropdown-menu" id="dropdown-menu">
+                        <!-- Diisi dari data kategori -->
+                    </div>
+                </li>
+
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="information.html">INFORMATION</a></li>
+                <li><a href="shipping-policy.html">SHIPPING & DELIVERY</a></li>
+                <li><a href="pesanan-saya.html">ORDER</a></li>
+            </ul>
+
+            <!-- Right Side: Search, Cart, Auth -->
+            <div class="nav-right">
+                <!-- Search Form -->
+                <form class="search-form" onsubmit="handleSearch(event)">
+                    <input type="text" id="search-input" placeholder="Cari produk...">
+                    <button type="submit"><i class="bi bi-search"></i></button>
+                </form>
+
+                <!-- Cart Icon dengan Badge -->
+                <a href="cart.html" class="cart-link">
+                    <i class="bi bi-cart3"></i>
+                    <span class="cart-badge" id="cart-badge" style="display:none;">0</span>
+                </a>
+
+                <!-- Auth Area (Login/Profile) -->
+                <div id="auth-area">
+                    <div class="nav-profile">
+                        <div class="auth-links">
+                            <a href="login.html">Login</a> / <a href="register.html">Register</a>
+                        </div>
+                        <i class="bi bi-person-circle profile-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================= -->
+    <!-- MAIN CONTENT -->
+    <!-- ============================================= -->
+    <main>
+        <div class="content-container">
+
+            <!-- Konten Detail Produk (jika ada query ?produk=ID) -->
+            <div id="page-content"></div>
+
+            <!-- Banner Carousel (hanya tampil di halaman home) -->
+            <div id="banner-section" class="banner-wrapper">
+                <div class="carousel" id="banner-carousel">
+                    <div class="carousel-inner">
+                        <!-- Slide 1 -->
+                        <div class="carousel-item active">
+                            <img src="public/uploads/banner1.png" alt="Promo Network Equipment Store">
+                        </div>
+                        <!-- Slide 2 -->
+                        <div class="carousel-item">
+                            <img src="public/uploads/banner2.png" alt="Diskon Perangkat Jaringan">
+                        </div>
+                        <!-- Slide 3 -->
+                        <div class="carousel-item">
+                            <img src="public/uploads/banner3.png" alt="Koleksi Terbaru NES">
+                        </div>
+                    </div>
+                    <!-- Carousel Indicators (dots) -->
+                    <div class="carousel-indicators">
+                        <button class="active" aria-label="Slide 1"></button>
+                        <button aria-label="Slide 2"></button>
+                        <button aria-label="Slide 3"></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Judul Katalog -->
+            <h2 class="section-title reveal" id="page-title">ALL PRODUCT</h2>
+
+            <!-- Grid Produk (diisi oleh app.js) -->
+            <div class="product-grid" id="product-grid">
+                <!-- Produk di-render oleh JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <!-- ============================================= -->
+    <!-- FOOTER - Informasi Kontak & Pembayaran -->
+    <!-- ============================================= -->
+    <!-- ============================================= -->
+    <!-- FOOTER - Redesign dengan logo bank menarik -->
+    <!-- ============================================= -->
+    <footer class="footer">
+        <div class="content-container">
+            <div class="footer-grid">
+                <!-- Kolom 1: Brand -->
+                <div class="footer-col">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                        <img src="public/uploads/profile/LOGO_NES.png" alt="NES"
+                            style="width:45px;height:45px;border-radius:50%;background:white;padding:5px;">
+                        <h4 style="font-weight:800;color:#1a6d4b;margin:0;">NES</h4>
+                    </div>
+                    <p class="text-muted small">Network Equipment Store — Toko perangkat jaringan terlengkap dan
+                        terpercaya sejak 2020.</p>
+                </div>
+                <!-- Kolom 2: Navigasi Cepat -->
+                <div class="footer-col">
+                    <h5>Navigasi</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="information.html">Informasi</a></li>
+                        <li><a href="shipping-policy.html">Pengiriman</a></li>
+                    </ul>
+                </div>
+                <!-- Kolom 3: Hubungi Kami -->
+                <div class="footer-col">
+                    <h5>Hubungi Kami</h5>
+                    <div class="footer-contact">
+                        <a href="https://wa.me/6285806132246" target="_blank"><i class="bi bi-whatsapp"></i> +62 858-0613-2246</a>
+                        <a href="mailto:info@nes.co.id"><i class="bi bi-envelope-fill"></i> info@nes.co.id</a>
+                        <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i> @nes_store</a>
+                    </div>
+                </div>
+                <!-- Kolom 4: Pembayaran dengan Logo Bank -->
+                <div class="footer-col">
+                    <h5>Metode Pembayaran</h5>
+                    <div class="bank-grid">
+                        <div class="bank-card"><img src="public/uploads/bca.svg" alt="BCA"></div>
+                        <div class="bank-card"><img src="public/uploads/bni.svg" alt="BNI"></div>
+                        <div class="bank-card"><img src="public/uploads/bri.svg" alt="BRI"></div>
+                        <div class="bank-card"><img src="public/uploads/mandiri.svg" alt="Mandiri"></div>
+                    </div>
+                    <h5 style="margin-top:16px;">Pengiriman</h5>
+                    <div class="bank-grid">
+                        <div class="bank-card"><img src="public/uploads/jne.png" alt="JNE"></div>
+                        <div class="bank-card"><img src="public/uploads/jnt.svg" alt="J&T"></div>
+                        <div class="bank-card"><img src="public/uploads/sicepat.svg" alt="SiCepat"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Network Equipment Store. All Rights Reserved.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/6285806132246" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    <a href="mailto:info@nes.co.id"><i class="bi bi-envelope-fill"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================= -->
+    <!-- JAVASCRIPT FILES -->
+    <!-- Urutan penting: data → auth → cart → checkout → app -->
+    <!-- ============================================= -->
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script src="assets/js/cart.js"></script>
+    <script src="assets/js/checkout.js"></script>
+    <script src="assets/js/app.js"></script>
+
+    <!-- Script: Populate Dropdown Kategori -->
+    <script>
+        // Fitur: Isi dropdown kategori dari data.js
+        document.addEventListener("DOMContentLoaded", function () {
+            const menu = document.getElementById("dropdown-menu");
+            if (menu) {
+                let html = '<a href="index.html">All Product</a>';
+                DATA_KATEGORI.forEach(k => {
+                    html += `<a href="index.html?kategori=${k.id_kategori}">${k.nama_kategori}</a>`;
+                });
+                menu.innerHTML = html;
+            }
+
+            // Fitur: Sembunyikan banner jika halaman detail ATAU kategori
+            const params = new URLSearchParams(window.location.search);
+            if (params.has("produk") || params.has("kategori")) {
+                const banner = document.getElementById("banner-section");
+                if (banner) banner.style.display = "none";
+            }
+            if (params.has("produk")) {
+                const title = document.getElementById("page-title");
+                const grid = document.getElementById("product-grid");
+                if (title) title.style.display = "none";
+                if (grid) grid.style.display = "none";
+            }
+        });
+    </script>
+    <!-- Popup welcome (login/register/logout) ditangani oleh assets/js/app.js -->
+</body>
+
+</html> 

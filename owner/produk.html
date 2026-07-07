@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product - Owner NES</title>
+    <link rel="icon" href="../public/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/owner.css">
+</head>
+<body>
+
+    <div class="owner-layout">
+        <!-- Sidebar -->
+        <aside class="sidebar" id="owner-nav-links">
+            <div class="sidebar-brand">
+                <div class="logo-circle">
+                    <img src="../public/uploads/profile/LOGO_NES.png" alt="NES Logo">
+                </div>
+                <span>NES Owner</span>
+            </div>
+            <ul class="sidebar-menu">
+                <li><a href="dashboard.html"><i class="fas fa-chart-pie"></i> Dashboard</a></li>
+                <li><a href="produk.html" class="active"><i class="fas fa-boxes-stacked"></i> Product</a></li>
+                <li><a href="transaksi.html"><i class="fas fa-hand-holding-usd"></i> Transaction</a></li>
+                <li><a href="javascript:void(0)" onclick="logout()" style="color:#f87171;"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="owner-profile" id="owner-profile-btn">
+                    <i class="bi bi-person-circle"></i>
+                    <div class="profile-info">
+                        <span id="owner-name">Owner</span>
+                        <small>Store Executive</small>
+                    </div>
+                    <i class="bi bi-chevron-up" style="margin-left:auto;font-size:0.8rem;color:rgba(255,255,255,0.6);"></i>
+                </div>
+                <!-- Profile Menu -->
+                <div class="profile-dropdown" id="owner-profile-menu">
+                    <a href="javascript:void(0)" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Wrapper -->
+        <div class="main-wrapper">
+            <!-- Header -->
+            <header class="main-header">
+                <button class="owner-hamburger" id="owner-hamburger">
+                    <span></span><span></span><span></span>
+                </button>
+                <div class="header-title">
+                    <h2>Store Inventory Reports</h2>
+                </div>
+                <div class="header-right" style="display:flex;align-items:center;gap:12px;">
+                    <span class="badge badge-warning" style="padding:6px 12px;font-size:0.75rem;color:#000;font-weight:700;">Executive View</span>
+                </div>
+            </header>
+
+            <!-- Content -->
+            <main class="owner-content" id="owner-page-content">
+                <div class="text-center py-5"><div class="spinner"></div><p class="text-muted mt-3">Memuat laporan produk...</p></div>
+            </main>
+        </div>
+    </div>
+
+    <!-- JS Files -->
+    <script src="../assets/js/data.js"></script>
+    <script src="../assets/js/auth.js"></script>
+    <script src="../assets/js/cart.js"></script>
+    <script src="../assets/js/checkout.js"></script>
+    <script src="../assets/js/app.js"></script>
+    <script src="../assets/js/owner.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const s = getSession();
+            if (s) document.getElementById("owner-name").textContent = s.nama;
+        });
+    </script>
+</body>
+</html>

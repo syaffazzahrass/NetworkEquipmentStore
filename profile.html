@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Pengaturan Profil - Network Equipment Store">
+    <title>Profil Saya - NES</title>
+    <link rel="icon" href="public/favicon.ico">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <div id="nav-overlay" class="nav-overlay"></div>
+    <nav class="navbar">
+        <div class="container-fluid">
+            <a href="index.html" class="navbar-brand"><div class="logo-circle"><img src="public/uploads/profile/LOGO_NES.png" alt="NES"></div><span>NES</span></a>
+            <button class="hamburger" id="hamburger-btn"><span></span><span></span><span></span></button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li class="dropdown"><a href="javascript:void(0)" id="dropdown-toggle">PRODUCT <i class="bi bi-chevron-down" style="font-size:0.7rem;"></i></a><div class="dropdown-menu" id="dropdown-menu"></div></li>
+                <li><a href="contact.html">CONTACT</a></li>
+                <li><a href="information.html">INFORMATION</a></li>
+                <li><a href="shipping-policy.html">SHIPPING & DELIVERY</a></li>
+                <li><a href="pesanan-saya.html">ORDER</a></li>
+            </ul>
+            <div class="nav-right">
+                <a href="cart.html" class="cart-link"><i class="bi bi-cart3"></i><span class="cart-badge" id="cart-badge" style="display:none;">0</span></a>
+                <div id="auth-area"></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ============================================= -->
+    <!-- KONTEN HALAMAN PROFIL -->
+    <!-- Dirender oleh app.js → renderProfile() -->
+    <!-- ============================================= -->
+    <main>
+        <div class="content-container" style="margin-top:30px;">
+            <h2 class="section-title text-center">Profil Saya</h2>
+            <div id="profile-content">
+                <div class="text-center py-5"><div class="spinner"></div></div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="content-container">
+            <div class="footer-grid">
+                <!-- Kolom 1: Brand -->
+                <div class="footer-col">
+                    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                        <img src="public/uploads/profile/LOGO_NES.png" alt="NES" style="width:45px;height:45px;border-radius:50%;background:white;padding:5px;">
+                        <h4 style="font-weight:800;color:#1a6d4b;margin:0;">NES</h4>
+                    </div>
+                    <p class="text-muted small">Network Equipment Store — Toko perangkat jaringan terlengkap dan terpercaya sejak 2020.</p>
+                </div>
+                <!-- Kolom 2: Navigasi Cepat -->
+                <div class="footer-col">
+                    <h5>Navigasi</h5>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="contact.html">Kontak</a></li>
+                        <li><a href="information.html">Informasi</a></li>
+                        <li><a href="shipping-policy.html">Pengiriman</a></li>
+                    </ul>
+                </div>
+                <!-- Kolom 3: Hubungi Kami -->
+                <div class="footer-col">
+                    <h5>Hubungi Kami</h5>
+                    <div class="footer-contact">
+                        <a href="https://wa.me/6285806132246" target="_blank"><i class="bi bi-whatsapp"></i> +62 858-0613-2246</a>
+                        <a href="mailto:info@nes.co.id"><i class="bi bi-envelope-fill"></i> info@nes.co.id</a>
+                        <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i> @nes_store</a>
+                    </div>
+                </div>
+                <!-- Kolom 4: Pembayaran dengan Logo Bank -->
+                <div class="footer-col">
+                    <h5>Metode Pembayaran</h5>
+                    <div class="bank-grid">
+                        <div class="bank-card"><img src="public/uploads/bca.svg" alt="BCA"></div>
+                        <div class="bank-card"><img src="public/uploads/bni.svg" alt="BNI"></div>
+                        <div class="bank-card"><img src="public/uploads/bri.svg" alt="BRI"></div>
+                        <div class="bank-card"><img src="public/uploads/mandiri.svg" alt="Mandiri"></div>
+                    </div>
+                    <h5 style="margin-top:16px;">Pengiriman</h5>
+                    <div class="bank-grid">
+                        <div class="bank-card"><img src="public/uploads/jne.png" alt="JNE"></div>
+                        <div class="bank-card"><img src="public/uploads/jnt.svg" alt="J&T"></div>
+                        <div class="bank-card"><img src="public/uploads/sicepat.svg" alt="SiCepat"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Network Equipment Store. All Rights Reserved.</p>
+                <div class="footer-social">
+                    <a href="https://wa.me/6285806132246" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    <a href="mailto:info@nes.co.id"><i class="bi bi-envelope-fill"></i></a>
+                    <a href="https://instagram.com" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="assets/js/data.js"></script><script src="assets/js/auth.js"></script><script src="assets/js/cart.js"></script><script src="assets/js/checkout.js"></script><script src="assets/js/app.js"></script>
+    <script>document.addEventListener("DOMContentLoaded",function(){const m=document.getElementById("dropdown-menu");if(m){let h='<a href="index.html">All Product</a>';DATA_KATEGORI.forEach(k=>{h+=`<a href="index.html?kategori=${k.id_kategori}">${k.nama_kategori}</a>`;});m.innerHTML=h;}});</script>
+</body>
+</html>

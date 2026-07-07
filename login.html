@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login Customer - Network Equipment Store">
+    <title>Login - Network Equipment Store</title>
+    <link rel="icon" href="public/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+</head>
+<body>
+
+    <!-- ============================================= -->
+    <!-- HALAMAN LOGIN CUSTOMER - Redesign Premium -->
+    <!-- Background terang dengan dekorasi gradien -->
+    <!-- ============================================= -->
+    <div class="auth-page">
+        <div class="auth-card">
+            <!-- Logo NES -->
+            <div class="auth-logo">
+                <img src="public/uploads/profile/LOGO_NES.png" alt="NES Logo">
+            </div>
+
+            <h1 class="auth-title">Welcome Back!</h1>
+            <p class="auth-subtitle">Masuk ke akun Anda untuk mulai berbelanja</p>
+
+            <!-- Alert Message -->
+            <div id="login-alert" style="display:none;"></div>
+
+            <!-- Form Login -->
+            <form id="login-form" onsubmit="handleLoginSubmit(event)">
+                <div class="auth-form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" id="login-email" class="form-control" placeholder="Masukkan email Anda" required>
+                </div>
+
+                <div class="auth-form-group">
+                    <label class="form-label">Password</label>
+                    <div class="password-wrapper">
+                        <input type="password" id="login-password" class="form-control" placeholder="Masukkan password" required>
+                        <button type="button" class="toggle-password" onclick="togglePassword('login-password', this)">
+                            <i class="bi bi-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-green" style="margin-top:8px;">
+                    <i class="bi bi-box-arrow-in-right" style="margin-right:6px;"></i> Masuk
+                </button>
+            </form>
+
+            <!-- Divider -->
+            <div class="auth-divider"><span>atau</span></div>
+
+            <!-- Links -->
+            <p class="auth-link" style="margin-top:0;">Belum punya akun? <a href="register.html">Daftar Sekarang</a></p>
+            <p style="text-align:center;margin-top:16px;">
+                <!-- <a href="login-internal.html" style="color:#94a3b8;font-size:0.82rem;text-decoration:none;display:inline-flex;align-items:center;gap:4px;">
+                    <i class="bi bi-shield-lock"></i> Login sebagai Admin/Owner
+                </a> -->
+            </p>
+        </div>
+    </div>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/auth.js"></script>
+    <script>
+        /** Fitur: Handle login customer */
+        function handleLoginSubmit(e) {
+            e.preventDefault();
+            const email = document.getElementById("login-email").value;
+            const password = document.getElementById("login-password").value;
+            const alertDiv = document.getElementById("login-alert");
+
+            const result = loginCustomer(email, password);
+            alertDiv.style.display = "block";
+            if (result.success) {
+                alertDiv.className = "auth-alert auth-alert-success";
+                alertDiv.innerHTML = '<i class="bi bi-check-circle-fill"></i> ' + result.message;
+                const session = getSession();
+                localStorage.setItem("nes_notify", JSON.stringify({ type: "login", nama: session ? session.nama : "" }));
+                setTimeout(() => { window.location.href = "index.html"; }, 900);
+            } else {
+                alertDiv.className = "auth-alert auth-alert-danger";
+                alertDiv.innerHTML = '<i class="bi bi-exclamation-circle-fill"></i> ' + result.message;
+            }
+        }
+
+        /** Fitur: Toggle password visibility */
+        function togglePassword(inputId, btn) {
+            const input = document.getElementById(inputId);
+            const icon = btn.querySelector("i");
+            if (input.type === "password") { input.type = "text"; icon.className = "bi bi-eye-slash"; }
+            else { input.type = "password"; icon.className = "bi bi-eye"; }
+        }
+
+        if (isLoggedIn() && getUserRole() === "Customer") window.location.href = "index.html";
+    </script>
+</body>
+</html>
